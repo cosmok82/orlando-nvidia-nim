@@ -111,8 +111,7 @@ Calls `GET /v1/models` live, matches the returned IDs with the embedded catalog 
 
 ### `/nim-refresh-catalog` — refresh catalog from SDK
 
-Runs the Python toolchain (`scripts/nim_probe_models.py` → `scripts/generate_catalog.py`)
-to fetch fresh model metadata from the LangChain SDK and regenerate `models.json`.
+Runs the Python toolchain (`scripts/nim_probe_models.py` → `scripts/generate_catalog.py`) to fetch fresh model metadata from the LangChain SDK and regenerate `models.json`.
 The provider is automatically re-registered with the updated catalog.
 
 **Requirements:**
@@ -138,22 +137,16 @@ python scripts/generate_catalog.py
 ## Updating the model catalog
 
 Use `/nim-refresh-catalog` whenever NVIDIA adds new models or changes thinking flags.
-The command automatically runs both Python scripts and reloads the catalog — no manual
-steps required.
+The command automatically runs both Python scripts and reloads the catalog — no manual steps required.
 
 ## Technical details
 
 - Current catalog: **136 models**, of which **25 with `supports_thinking=true`**.
-- The 7 thinking models without explicit kwargs (`thinking_param_enable=null`) use
-  the fallback `{"chat_template_kwargs":{"enable_thinking":true}}`.
+- The 7 thinking models without explicit kwargs (`thinking_param_enable=null`) use the fallback `{"chat_template_kwargs":{"enable_thinking":true}}`.
 - Models with `deprecated=true` are included with `[dep]` prefix in the display name.
-- **Thinking** handled natively by pi via
-  `compat.thinkingFormat: "chat-template"` + `compat.chatTemplateKwargs`
-  (derived from each model's `thinking_param_enable`). No manual injection.
-- Note: the `temperature/top_p/max_tokens/reasoning_budget` parameters are **NOT**
-  exposed by the NVIDIA SDK. They are set **only** by the user via `/nim-config`.
-- Per-model context window and max_tokens from an accurate table (~140 entries) sourced
-  from the xRyul catalog; for models not in the table, conservative fallback 131072 / min(16384,ctx).
+- **Thinking** handled natively by pi via `compat.thinkingFormat: "chat-template"` + `compat.chatTemplateKwargs` (derived from each model's `thinking_param_enable`). No manual injection.
+- Note: the `temperature/top_p/max_tokens/reasoning_budget` parameters are **NOT** exposed by the NVIDIA SDK. They are set **only** by the user via `/nim-config`.
+- Per-model context window and max_tokens from an accurate table (~140 entries) sourced from the xRyul catalog; for models not in the table, conservative fallback 131072 / min(16384,ctx).
 
 ## License
 
