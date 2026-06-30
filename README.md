@@ -4,6 +4,16 @@ NVIDIA NIM provider for pi with **thinking catalog extracted from the LangChain 
 
 Same endpoint as `nvidia-nim` but separate provider name (`orlando-nvidia-nim`) to avoid collisions with other extensions.
 
+## Key Features
+
+- **136-model catalog** extracted from the LangChain SDK — thinking flags, deprecation status, per-model context windows and max output tokens
+- **`/nim-config`** slash command — configure `temperature`, `top_p`, `max_tokens`, `reasoning_budget` globally or per-model, persisted as JSON
+- **`/nim-refresh`** slash command — queries `GET /v1/models` live and re-registers the provider
+- **Native thinking** via pi `compat.thinkingFormat` + `compat.chatTemplateKwargs` — no manual injection, derived automatically from SDK metadata
+- **Separate provider name** (`orlando-nvidia-nim`) — safe to install alongside other NIM extensions
+- **Footer status line** showing current sampling parameters and context usage percentage
+
+
 ## Setup
 
 ### 1. Get an NVIDIA NIM API Key
