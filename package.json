@@ -1,0 +1,15 @@
+{
+  "name": "orlando-nvidia-nim",
+  "version": "1.0.0",
+  "description": "NVIDIA NIM provider for pi with SDK-sourced thinking catalog and user sampling overrides.",
+  "license": "MIT",
+  "author": "Cosimo Orlando (CosOr)",
+  "type": "module",
+  "dependencies": {
+    "@earendil-works/pi-ai": "*",
+    "@earendil-works/pi-coding-agent": "*"
+  },
+  "pi": {
+    "extensions": ["./index.ts"]
+  }
+}

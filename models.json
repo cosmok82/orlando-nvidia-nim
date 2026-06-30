@@ -1,0 +1,1834 @@
+{
+  "sdk_version": "1.4.2",
+  "generated_at": null,
+  "models": [
+    {
+      "id": "nvidia/llama-3.1-nemotron-nano-8b-v1",
+      "model_type": "chat",
+      "supports_thinking": true,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "google/gemma-2-27b-it",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": [
+        "ai-gemma-2-27b-it"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "mistralai/mistral-small-24b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "tiiuae/falcon3-7b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "openai/gpt-oss-120b",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "z-ai/glm-5.1",
+      "model_type": "chat",
+      "supports_thinking": true,
+      "thinking_param_enable": {
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "thinking_param_disable": {
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "supports_tools": true,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "meta/llama-3.2-1b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "upstage/solar-10.7b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": [
+        "ai-solar-10_7b-instruct"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "ibm/granite-guardian-3.0-8b",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "google/codegemma-7b",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": [
+        "ai-codegemma-7b"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "nvidia/nvclip",
+      "model_type": "vlm",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "baichuan-inc/baichuan2-13b-chat",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "rakuten/rakutenai-7b-chat",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "bytedance/seed-oss-36b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "meta/llama3-70b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": [
+        "ai-llama3-70b"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "google/gemma-3n-e4b-it",
+      "model_type": "vlm",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "igenius/italia_10b_instruct_16k",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "deepseek-ai/deepseek-v3.1-terminus",
+      "model_type": "chat",
+      "supports_thinking": true,
+      "thinking_param_enable": {
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "thinking_param_disable": {
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "deepseek-ai/deepseek-r1-0528",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "mistralai/magistral-small-2506",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "google/gemma-2-9b-it",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": [
+        "ai-gemma-2-9b-it"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "microsoft/phi-4-mini-flash-reasoning",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "qwen/qwen3-235b-a22b",
+      "model_type": "chat",
+      "supports_thinking": true,
+      "thinking_param_enable": {
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "thinking_param_disable": {
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "supports_tools": true,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
+      "model_type": "chat",
+      "supports_thinking": true,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "meta/llama-3.1-8b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "mistralai/mixtral-8x22b-v0.1",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "deepseek-ai/deepseek-v3.2",
+      "model_type": "chat",
+      "supports_thinking": true,
+      "thinking_param_enable": {
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "thinking_param_disable": {
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "google/gemma-4-31b-it",
+      "model_type": "chat",
+      "supports_thinking": true,
+      "thinking_param_enable": {
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "thinking_param_disable": {
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "supports_tools": true,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "moonshotai/kimi-k2.5",
+      "model_type": "vlm",
+      "supports_thinking": true,
+      "thinking_param_enable": {
+        "chat_template_kwargs": {
+          "thinking": true
+        }
+      },
+      "thinking_param_disable": {
+        "chat_template_kwargs": {
+          "thinking": false
+        }
+      },
+      "supports_tools": true,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "mistralai/mamba-codestral-7b-v0.1",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "mistralai/mistral-nemotron",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "microsoft/phi-3-medium-128k-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": [
+        "ai-phi-3-medium-128k-instruct"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "nvidia/ising-calibration-1-35b-a3b",
+      "model_type": "vlm",
+      "supports_thinking": true,
+      "thinking_param_enable": {
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "thinking_param_disable": {
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "microsoft/phi-3.5-vision-instruct",
+      "model_type": "vlm",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "meta/llama-3.3-70b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "meta/llama-4-scout-17b-16e-instruct",
+      "model_type": "vlm",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "qwen/qwen2.5-7b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "qwen/qwen3-next-80b-a3b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "microsoft/phi-3.5-mini-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "meta/llama-3.2-11b-vision-instruct",
+      "model_type": "vlm",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "meta/llama-3.2-3b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "abacusai/dracarys-llama-3.1-70b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "moonshotai/kimi-k2-instruct-0905",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "nvidia/nemoretriever-parse",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "qwen/qwen2-7b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "microsoft/phi-3-medium-4k-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": [
+        "ai-phi-3-medium-4k-instruct"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "meta/llama3-8b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": [
+        "ai-llama3-8b"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "thudm/chatglm3-6b",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "deepseek-ai/deepseek-r1-distill-qwen-14b",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "mistralai/mistral-large-3-675b-instruct-2512",
+      "model_type": "vlm",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "google/gemma-3n-e2b-it",
+      "model_type": "vlm",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "nvidia/llama-3.1-nemotron-70b-reward",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "utter-project/eurollm-9b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "yentinglin/llama-3-taiwan-70b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "z-ai/glm5",
+      "model_type": "chat",
+      "supports_thinking": true,
+      "thinking_param_enable": {
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "thinking_param_disable": {
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "supports_tools": true,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "mistralai/mathstral-7b-v0.1",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "deepseek-ai/deepseek-v4-pro",
+      "model_type": "chat",
+      "supports_thinking": true,
+      "thinking_param_enable": {
+        "chat_template_kwargs": {
+          "thinking": true
+        }
+      },
+      "thinking_param_disable": {
+        "chat_template_kwargs": {
+          "thinking": false
+        }
+      },
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "nvidia/nemotron-4-mini-hindi-4b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": true,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "deepseek-ai/deepseek-r1",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "openai/gpt-oss-20b",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "mistralai/mixtral-8x22b-instruct-v0.1",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": [
+        "ai-mixtral-8x22b-instruct"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "qwen/qwq-32b",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "nvidia/llama-3.3-nemotron-super-49b-v1",
+      "model_type": "chat",
+      "supports_thinking": true,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "deepseek-ai/deepseek-r1-distill-qwen-7b",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "nvidia/usdcode-llama-3.1-70b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "google/gemma-3-27b-it",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "microsoft/phi-3-mini-128k-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": [
+        "ai-phi-3-mini"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "meta/llama-4-maverick-17b-128e-instruct",
+      "model_type": "vlm",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "deepseek-ai/deepseek-v4-flash",
+      "model_type": "chat",
+      "supports_thinking": true,
+      "thinking_param_enable": {
+        "chat_template_kwargs": {
+          "thinking": true
+        }
+      },
+      "thinking_param_disable": {
+        "chat_template_kwargs": {
+          "thinking": false
+        }
+      },
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "qwen/qwen3.5-397b-a17b",
+      "model_type": "vlm",
+      "supports_thinking": true,
+      "thinking_param_enable": {
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "thinking_param_disable": {
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "institute-of-science-tokyo/llama-3.1-swallow-70b-instruct-v0.1",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": true,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "tokyotech-llm/llama-3-swallow-70b-instruct-v0.1",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "gotocompany/gemma-2-9b-cpt-sahabatai-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "stepfun-ai/step-3.5-flash",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "qwen/qwen3-next-80b-a3b-thinking",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "minimaxai/minimax-m2.5",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "mediatek/breeze-7b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": [
+        "ai-breeze-7b-instruct"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "microsoft/phi-3-small-8k-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": [
+        "ai-phi-3-small-8k-instruct"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "speakleash/bielik-11b-v2.3-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "zyphra/zamba2-7b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "nvidia/nemotron-3-super-120b-a12b",
+      "model_type": "chat",
+      "supports_thinking": true,
+      "thinking_param_enable": {
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "thinking_param_disable": {
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "marin/marin-8b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "google/gemma-3-1b-it",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "rakuten/rakutenai-7b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "google/gemma-3-12b-it",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "minimaxai/minimax-m2",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "z-ai/glm4.7",
+      "model_type": "chat",
+      "supports_thinking": true,
+      "thinking_param_enable": {
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "thinking_param_disable": {
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "supports_tools": true,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "mistralai/codestral-22b-instruct-v0.1",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": [
+        "ai-codestral-22b-instruct-v01"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "mistralai/mistral-small-4-119b-2603",
+      "model_type": "vlm",
+      "supports_thinking": true,
+      "thinking_param_enable": {
+        "reasoning_effort": "high"
+      },
+      "thinking_param_disable": {
+        "reasoning_effort": null
+      },
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "mistralai/mixtral-8x7b-instruct-v0.1",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": [
+        "ai-mixtral-8x7b-instruct",
+        "playground_mixtral_8x7b",
+        "mixtral_8x7b"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "qwen/qwen2.5-coder-7b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "meta/llama-3.2-90b-vision-instruct",
+      "model_type": "vlm",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "deepseek-ai/deepseek-r1-distill-llama-8b",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "microsoft/phi-3-small-128k-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": [
+        "ai-phi-3-small-128k-instruct"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "meta/llama-guard-4-12b",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "nvidia/nemotron-3-nano-30b-a3b",
+      "model_type": "chat",
+      "supports_thinking": true,
+      "thinking_param_enable": {
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "thinking_param_disable": {
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "qwen/qwen3.5-122b-a10b",
+      "model_type": "vlm",
+      "supports_thinking": true,
+      "thinking_param_enable": {
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "thinking_param_disable": {
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "supports_tools": true,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "mistralai/ministral-14b-instruct-2512",
+      "model_type": "vlm",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "microsoft/phi-3-vision-128k-instruct",
+      "model_type": "nv-vlm",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": [
+        "ai-phi-3-vision-128k-instruct"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "igenius/colosseum_355b_instruct_16k",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "nvidia/nemotron-mini-4b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "nvidia/llama-3.1-nemoguard-8b-topic-control",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "meta/llama-3.1-70b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "nvidia/llama-3.1-nemoguard-8b-content-safety",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "meta/llama-3.1-405b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+      "model_type": "chat",
+      "supports_thinking": true,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "nvidia/llama-3.1-nemotron-nano-vl-8b-v1",
+      "model_type": "vlm",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "moonshotai/kimi-k2-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "google/gemma-7b",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": [
+        "ai-gemma-7b",
+        "playground_gemma_7b",
+        "gemma_7b"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "mistralai/mistral-medium-3-instruct",
+      "model_type": "vlm",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "aisingapore/sea-lion-7b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": [
+        "ai-sea-lion-7b-instruct"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "microsoft/phi-4-multimodal-instruct",
+      "model_type": "vlm",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "nv-mistralai/mistral-nemo-12b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "mistralai/mistral-7b-instruct-v0.2",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": [
+        "ai-mistral-7b-instruct-v2",
+        "playground_mistral_7b",
+        "mistral_7b"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "institute-of-science-tokyo/llama-3.1-swallow-8b-instruct-v0.1",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": true,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "deepseek-ai/deepseek-v3.1",
+      "model_type": "chat",
+      "supports_thinking": true,
+      "thinking_param_enable": {
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "thinking_param_disable": {
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "google/gemma-3-4b-it",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "mistralai/mistral-7b-instruct-v0.3",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": [
+        "ai-mistral-7b-instruct-v03"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "mistralai/ministral-3-14b-instruct-2512",
+      "model_type": "vlm",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "google/shieldgemma-9b",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "microsoft/phi-4-mini-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "mistralai/mistral-small-3.1-24b-instruct-2503",
+      "model_type": "vlm",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "qwen/qwen2.5-coder-32b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "deepseek-ai/deepseek-r1-distill-qwen-32b",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "01-ai/yi-large",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": [
+        "ai-yi-large"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "moonshotai/kimi-k2-thinking",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "nvidia/nemotron-nano-12b-v2-vl",
+      "model_type": "vlm",
+      "supports_thinking": true,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "microsoft/phi-3-mini-4k-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": [
+        "ai-phi-3-mini-4k",
+        "playground_phi2",
+        "phi2"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "nvidia/llama-3.1-nemotron-nano-4b-v1.1",
+      "model_type": "chat",
+      "supports_thinking": true,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "minimaxai/minimax-m2.7",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "nvidia/nvidia-nemotron-nano-9b-v2",
+      "model_type": "chat",
+      "supports_thinking": true,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "nvidia/llama3-chatqa-1.5-8b",
+      "model_type": "qa",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": [
+        "ai-chatqa-1.5-8b"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "google/paligemma",
+      "model_type": "nv-vlm",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": [
+        "ai-google-paligemma"
+      ],
+      "base_model": null
+    },
+    {
+      "id": "ibm/granite-3.3-8b-instruct",
+      "model_type": "chat",
+      "supports_thinking": true,
+      "thinking_param_enable": {
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "thinking_param_disable": {
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      },
+      "supports_tools": true,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "google/gemma-2-2b-it",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": false,
+      "aliases": null,
+      "base_model": null
+    },
+    {
+      "id": "nvidia/riva-translate-4b-instruct",
+      "model_type": "chat",
+      "supports_thinking": false,
+      "thinking_param_enable": null,
+      "thinking_param_disable": null,
+      "supports_tools": false,
+      "supports_structured_output": false,
+      "deprecated": true,
+      "aliases": null,
+      "base_model": null
+    }
+  ]
+}
