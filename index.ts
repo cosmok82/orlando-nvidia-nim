@@ -12,11 +12,14 @@
  *
  *
  * Commands:
- *   /nim-refresh  -> calls GET /v1/models live, matches with models.json, re-registers
- *   /nim-config   -> read/modify sampling config (defaults + per-model)
+ *   /nim-refresh         -> calls GET /v1/models live, matches with models.json, re-registers
+ *   /nim-refresh-catalog -> runs Python toolchain to refresh models.json from LangChain SDK
+ *   /nim-config          -> read/modify sampling config (defaults + per-model)
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { execSync } from "node:child_process";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import type {
 	Api,
 	AssistantMessageEventStream,
@@ -57,7 +60,7 @@ interface CatalogEntry {
 	aliases: string[] | null;
 	base_model: string | null;
 }
-const CATALOG: CatalogEntry[] = (catalogData as { models: CatalogEntry[] }).models;
+let CATALOG: CatalogEntry[] = (catalogData as { models: CatalogEntry[] }).models;
 const CATALOG_BY_ID = new Map(CATALOG.map((m) => [m.id, m]));
 
 // Fallback kwargs for the 7 models with supports_thinking=true but thinking_param_enable=null
@@ -213,6 +216,23 @@ function resolveContextWindow(id: string): number {
 function resolveMaxTokens(id: string, ctx: number): number {
 	return MAX_TOKENS[id] ?? Math.min(16384, ctx);
 }
+
+function getExtensionDir(): string {
+	return dirname(fileURLToPath(import.meta.url));
+}
+
+function reloadCatalog(): boolean {
+	try {
+		const catalogPath = join(getExtensionDir(), "models.json");
+		const raw = JSON.parse(readFileSync(catalogPath, "utf-8")) as { models: CatalogEntry[] };
+		CATALOG = raw.models;
+		CATALOG_BY_ID = new Map(CATALOG.map((m) => [m.id, m]));
+		return true;
+	} catch {
+		return false;
+	}
+}
+
 
 // =============================================================================
 // User sampling config
@@ -469,6 +489,50 @@ export default function (pi: ExtensionAPI): void {
 				ctx.ui.notify(`orlando-nvidia-nim: configured "${target}"`, "info");
 			} catch (e) {
 				ctx.ui.notify(`orlando-nvidia-nim: invalid JSON (${e instanceof Error ? e.message : String(e)})`, "error");
+			}
+		},
+	// /nim-refresh-catalog ----------------------------------------------------
+	pi.registerCommand("nim-refresh-catalog", {
+		description: "Runs the Python toolchain to refresh the model catalog from the LangChain SDK",
+		handler: async (_args, ctx) => {
+			const extDir = getExtensionDir();
+			const probeScript = join(extDir, "scripts", "nim_probe_models.py");
+			const genScript = join(extDir, "scripts", "generate_catalog.py");
+
+			ctx.ui.setStatus("orlando-nvidia-nim", "Refreshing catalog...");
+
+			try {
+				ctx.ui.notify("orlando-nvidia-nim: Step 1/2 — running model probe...", "info");
+				execSync(`python "${probeScript}" --out-dir "${extDir}"`, {
+					timeout: 120000,
+					stdio: "pipe",
+				});
+
+				ctx.ui.notify("orlando-nvidia-nim: Step 2/2 — generating catalog...", "info");
+				execSync(`python "${genScript}"`, {
+					timeout: 30000,
+					stdio: "pipe",
+				});
+
+				if (reloadCatalog()) {
+					pi.registerProvider(PROVIDER_NAME, {
+						baseUrl: BASE_URL,
+						apiKey: providerApiKeyConfig(),
+						api: "openai-completions",
+						authHeader: true,
+						models: buildAllEntries(),
+						streamSimple: nimStreamSimple,
+					} as Parameters<typeof pi.registerProvider>[1]);
+
+					ctx.ui.setStatus("orlando-nvidia-nim", `Catalog refreshed (${CATALOG.length} models)`);
+					ctx.ui.notify(`orlando-nvidia-nim: Catalog refreshed — ${CATALOG.length} models`, "info");
+				} else {
+					ctx.ui.notify("orlando-nvidia-nim: Failed to reload catalog from models.json", "error");
+				}
+			} catch (e) {
+				const msg = e instanceof Error ? e.message : String(e);
+				ctx.ui.notify(`orlando-nvidia-nim: Catalog refresh failed — ${msg}`, "error");
+				ctx.ui.setStatus("orlando-nvidia-nim", "Refresh failed");
 			}
 		},
 	});

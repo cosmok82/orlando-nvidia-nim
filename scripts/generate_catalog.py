@@ -11,8 +11,7 @@ models.json file used by the orlando-nvidia-nim extension.
 Flow:
   1. run nim_probe_models.py  -> produces nim_langchain_dump.json
   2. run this script           -> produces ../models.json
-  3. commit models.json + /reload in pi
-
+  3. run /nim-refresh-catalog in pi (or /reload)
 Usage:
   python generate_catalog.py [path_to_dump.json]
 """
@@ -22,7 +21,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
-DEFAULT_DUMP = Path(r"C:/checkup/nim_langchain_dump.json")
+DEFAULT_DUMP = ROOT / "nim_langchain_dump.json"
 OUT = ROOT / "models.json"
 
 

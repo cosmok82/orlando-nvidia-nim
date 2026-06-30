@@ -107,19 +107,39 @@ Coding default: `temperature=0.3, top_p=0.95, max_tokens=8192`.
 
 ### `/nim-refresh` — live refresh
 
-Calls `GET /v1/models` live, matches the returned IDs with the embedded catalog (`models.json`), and re-registers the provider. Useful after NVIDIA-side additions/changes.
+Calls `GET /v1/models` live, matches the returned IDs with the embedded catalog (`models.json`), and re-registers the provider. Use this to sync with the API if NVIDIA removes or renames models online.
 
-## Updating the model catalog (thinking / context)
+### `/nim-refresh-catalog` — refresh catalog from SDK
 
-When NVIDIA adds models or changes thinking flags:
+Runs the Python toolchain (`scripts/nim_probe_models.py` → `scripts/generate_catalog.py`)
+to fetch fresh model metadata from the LangChain SDK and regenerate `models.json`.
+The provider is automatically re-registered with the updated catalog.
 
-1. `python C:/checkup/nim_probe_models.py`
-   (requires `langchain-nvidia-ai-endpoints`) → produces `nim_langchain_dump.json`
-   with all models + flags (`supports_thinking`, `thinking_param_enable/disable`,
-   `supports_tools`, `deprecated`, `model_type`, ...).
-2. `python C:/checkup/orlando-nvidia-nim/scripts/generate_catalog.py`
-   → produces `orlando-nvidia-nim/models.json`.
-3. Commit the new `models.json` + `/reload` in pi (or `/nim-refresh`).
+**Requirements:**
+- Python 3.10+
+- `langchain-nvidia-ai-endpoints` (`pip install langchain-nvidia-ai-endpoints`)
+- `NVIDIA_API_KEY` or `NVIDIA_NIM_API_KEY` environment variable set
+
+```
+/nim-refresh-catalog
+```
+
+The command runs in two steps:
+1. **Model probe** — queries NVIDIA API + LangChain SDK, dumps `nim_langchain_dump.json`
+2. **Catalog generation** — converts the dump into `models.json` and reloads it
+
+You can also run the scripts manually from the extension directory:
+
+```bash
+python scripts/nim_probe_models.py
+python scripts/generate_catalog.py
+```
+
+## Updating the model catalog
+
+Use `/nim-refresh-catalog` whenever NVIDIA adds new models or changes thinking flags.
+The command automatically runs both Python scripts and reloads the catalog — no manual
+steps required.
 
 ## Technical details
 
