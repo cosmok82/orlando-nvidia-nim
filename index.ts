@@ -304,6 +304,15 @@ function providerApiKeyConfig(): string {
 	const env = getApiKeyEnvName() ?? "NVIDIA_API_KEY";
 	return `$${env}`;
 }
+let warnedNoKey = false;
+function maybeWarnMissingKey(ctx: ExtensionContext): void {
+	if (warnedNoKey || getApiKeyEnvName()) return;
+	warnedNoKey = true;
+	ctx.ui.notify(
+		"orlando-nvidia-nim: no NVIDIA_API_KEY/NVIDIA_NIM_API_KEY in this session. Set it persistently (setx) and open a fresh terminal/pi — this process did not inherit it.",
+		"warning",
+	);
+}
 
 // =============================================================================
 // Model entries construction
@@ -445,7 +454,10 @@ export default function (pi: ExtensionAPI): void {
 	} as Parameters<typeof pi.registerProvider>[1]);
 
 	// Status line update on model change, session start, turn end, thinking change
-	pi.on("session_start", async (_e, ctx) => updateStatusLine(ctx));
+	pi.on("session_start", async (_e, ctx) => {
+		maybeWarnMissingKey(ctx);
+		updateStatusLine(ctx);
+	});
 	pi.on("model_select", async (_e, ctx) => updateStatusLine(ctx));
 	pi.on("thinking_level_select", async (_e, ctx) => updateStatusLine(ctx));
 	pi.on("turn_end", async (_e, ctx) => updateStatusLine(ctx));

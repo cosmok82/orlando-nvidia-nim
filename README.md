@@ -25,15 +25,29 @@ Same endpoint as `nvidia-nim` but separate provider name (`orlando-nvidia-nim`) 
 
 ### 2. Set Your API Key
 
-```bash
-# Preferred by this extension
-export NVIDIA_NIM_API_KEY=nvapi-your-key-here
+The extension reads `NVIDIA_API_KEY` first, then `NVIDIA_NIM_API_KEY` (set either one).
 
-# Also supported, matching NVIDIA's website examples
-export NVIDIA_API_KEY=nvapi-your-key-here
+**Windows — PowerShell (persistent, recommended):**
+
+```powershell
+[Environment]::SetEnvironmentVariable("NVIDIA_NIM_API_KEY", "nvapi-your-key-here", "User")
 ```
 
-Add one of these to your `~/.bashrc`, `~/.zshrc`, or shell profile to persist it.
+> After setting it persistently, open a **new** terminal / `pi` session so it inherits the variable. Already-running shells won't see it (a missing key in the process shows a warning at session start).
+
+**Windows — PowerShell (current session only):**
+
+```powershell
+$env:NVIDIA_NIM_API_KEY = "nvapi-your-key-here"
+```
+
+**macOS / Linux (bash, zsh):**
+
+```bash
+export NVIDIA_NIM_API_KEY=nvapi-your-key-here   # or NVIDIA_API_KEY
+```
+
+Add it to your `~/.bashrc`, `~/.zshrc`, or shell profile to persist it.
 
 ### 3. Install the Extension
 
