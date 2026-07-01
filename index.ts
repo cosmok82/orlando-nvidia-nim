@@ -491,6 +491,7 @@ export default function (pi: ExtensionAPI): void {
 				ctx.ui.notify(`orlando-nvidia-nim: invalid JSON (${e instanceof Error ? e.message : String(e)})`, "error");
 			}
 		},
+	});
 	// /nim-refresh-catalog ----------------------------------------------------
 	pi.registerCommand("nim-refresh-catalog", {
 		description: "Runs the Python toolchain to refresh the model catalog from the LangChain SDK",
