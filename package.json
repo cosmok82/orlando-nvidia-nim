@@ -5,7 +5,7 @@
   "license": "MIT",
   "author": "Cosimo Orlando (CosOr)",
   "type": "module",
-  "dependencies": {
+  "devDependencies": {
     "@earendil-works/pi-ai": "*",
     "@earendil-works/pi-coding-agent": "*"
   },
