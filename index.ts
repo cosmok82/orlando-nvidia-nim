@@ -17,7 +17,7 @@
  *   /nim-config          -> read/modify sampling config (defaults + per-model)
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { execSync } from "node:child_process";
+import { spawn } from "node:child_process";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import type {
@@ -61,7 +61,7 @@ interface CatalogEntry {
 	base_model: string | null;
 }
 let CATALOG: CatalogEntry[] = (catalogData as { models: CatalogEntry[] }).models;
-const CATALOG_BY_ID = new Map(CATALOG.map((m) => [m.id, m]));
+let CATALOG_BY_ID = new Map(CATALOG.map((m) => [m.id, m]));
 
 // Fallback kwargs for the 7 models with supports_thinking=true but thinking_param_enable=null
 const DEFAULT_ENABLE_KWARGS = { chat_template_kwargs: { enable_thinking: true } };
@@ -221,16 +221,49 @@ function getExtensionDir(): string {
 	return dirname(fileURLToPath(import.meta.url));
 }
 
-function reloadCatalog(): boolean {
+function reloadCatalog(): void {
+	const catalogPath = join(getExtensionDir(), "models.json");
+	let raw: { models: CatalogEntry[] };
 	try {
-		const catalogPath = join(getExtensionDir(), "models.json");
-		const raw = JSON.parse(readFileSync(catalogPath, "utf-8")) as { models: CatalogEntry[] };
-		CATALOG = raw.models;
-		CATALOG_BY_ID = new Map(CATALOG.map((m) => [m.id, m]));
-		return true;
-	} catch {
-		return false;
+		raw = JSON.parse(readFileSync(catalogPath, "utf-8")) as { models: CatalogEntry[] };
+	} catch (e) {
+		const msg = e instanceof Error ? e.message : String(e);
+		throw new Error(`cannot read/parse ${catalogPath}: ${msg}`);
 	}
+	if (!Array.isArray(raw.models)) {
+		throw new Error(`${catalogPath} has no 'models' array (got ${typeof raw.models})`);
+	}
+	CATALOG = raw.models;
+	CATALOG_BY_ID = new Map(CATALOG.map((m) => [m.id, m]));
+}
+
+function runPython(args: string[], ctx: ExtensionContext, label: string): Promise<void> {
+	return new Promise((resolve, reject) => {
+		const child = spawn("python", args, {
+			stdio: ["ignore", "pipe", "pipe"],
+			env: { ...process.env, PYTHONIOENCODING: "utf-8", PYTHONUTF8: "1" },
+		});
+		let out = "";
+		let err = "";
+		const onData = (chunk: Buffer, isErr: boolean) => {
+			const text = chunk.toString("utf-8");
+			if (isErr) err += text;
+			else out += text;
+			const last = text.split(/\r?\n/).map((l) => l.trim()).filter(Boolean).pop();
+			if (last) ctx.ui.setStatus("orlando-nvidia-nim", `[${label}] ${last}`);
+		};
+		child.stdout?.on("data", (c: Buffer) => onData(c, false));
+		child.stderr?.on("data", (c: Buffer) => onData(c, true));
+		child.on("error", (e) => reject(e));
+		child.on("close", (code) => {
+			if (code === 0) {
+				resolve();
+			} else {
+				const tail = (err || out).slice(-800).trim();
+				reject(new Error(`python ${label} exited with code ${code}${tail ? `\n${tail}` : ""}`));
+			}
+		});
+	});
 }
 
 
@@ -504,32 +537,22 @@ export default function (pi: ExtensionAPI): void {
 
 			try {
 				ctx.ui.notify("orlando-nvidia-nim: Step 1/2 — running model probe...", "info");
-				execSync(`python "${probeScript}" --out-dir "${extDir}"`, {
-					timeout: 120000,
-					stdio: "pipe",
-				});
-
+				await runPython([probeScript, "--out-dir", extDir], ctx, "probe");
 				ctx.ui.notify("orlando-nvidia-nim: Step 2/2 — generating catalog...", "info");
-				execSync(`python "${genScript}"`, {
-					timeout: 30000,
-					stdio: "pipe",
-				});
+				await runPython([genScript], ctx, "catalog");
 
-				if (reloadCatalog()) {
-					pi.registerProvider(PROVIDER_NAME, {
-						baseUrl: BASE_URL,
-						apiKey: providerApiKeyConfig(),
-						api: "openai-completions",
-						authHeader: true,
-						models: buildAllEntries(),
-						streamSimple: nimStreamSimple,
-					} as Parameters<typeof pi.registerProvider>[1]);
+				reloadCatalog();
+				pi.registerProvider(PROVIDER_NAME, {
+					baseUrl: BASE_URL,
+					apiKey: providerApiKeyConfig(),
+					api: "openai-completions",
+					authHeader: true,
+					models: buildAllEntries(),
+					streamSimple: nimStreamSimple,
+				} as Parameters<typeof pi.registerProvider>[1]);
 
-					ctx.ui.setStatus("orlando-nvidia-nim", `Catalog refreshed (${CATALOG.length} models)`);
-					ctx.ui.notify(`orlando-nvidia-nim: Catalog refreshed — ${CATALOG.length} models`, "info");
-				} else {
-					ctx.ui.notify("orlando-nvidia-nim: Failed to reload catalog from models.json", "error");
-				}
+				ctx.ui.setStatus("orlando-nvidia-nim", `Catalog refreshed (${CATALOG.length} models)`);
+				ctx.ui.notify(`orlando-nvidia-nim: Catalog refreshed — ${CATALOG.length} models`, "info");
 			} catch (e) {
 				const msg = e instanceof Error ? e.message : String(e);
 				ctx.ui.notify(`orlando-nvidia-nim: Catalog refresh failed — ${msg}`, "error");

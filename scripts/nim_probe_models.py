@@ -66,14 +66,20 @@ class Tee:
             self._console.write(data)
         except Exception:
             pass
-        self._file.write(data)
+        try:
+            self._file.write(data)
+        except Exception:
+            pass
 
     def flush(self) -> None:
         try:
             self._console.flush()
         except Exception:
             pass
-        self._file.flush()
+        try:
+            self._file.flush()
+        except Exception:
+            pass
 
     def close(self) -> None:
         try:
@@ -305,6 +311,7 @@ def probe_langchain(api_key: str, out: Tee) -> dict:
 # ---------------------------------------------------------------------------
 def main() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
+    original_stdout = sys.stdout
     out = Tee(LOG_OUT)
     sys.stdout = out
 
@@ -332,6 +339,7 @@ def main() -> None:
     out.write(f"  - {LANG_OUT.name}: {'OK' if LANG_OUT.exists() else 'NO'}\n")
     out.write(f"  - {LOG_OUT.name}:   OK\n")
 
+    sys.stdout = original_stdout
     out.close()
 
 

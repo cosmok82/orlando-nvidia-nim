@@ -4,3 +4,4 @@ nim_raw_dump.json
 nim_langchain_dump.json
 __pycache__/
 *.pyc
+pi-session-*.html
